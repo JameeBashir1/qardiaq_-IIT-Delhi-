@@ -27,13 +27,13 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               // App exit button starts here
               Positioned(
-                top: 30,
-                left: 45,
+                top: MediaQuery.of(context).size.height*0.035,
+                left:MediaQuery.of(context).size.width*0.11,
                 child: InkWell(
                   child: Icon(
                     Icons.arrow_back,
                     color: Colors.white,
-                    size: 30,
+                    size: MediaQuery.of(context).size.aspectRatio*60,
                   ),
                   onTap: () async {
                     bool result = await showDialog(
@@ -67,13 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
               // Notification bell starts here
               Positioned(
-                top: 32,
-                left: 280,
+                top: MediaQuery.of(context).size.height*0.038,
+                left: MediaQuery.of(context).size.width*0.725,
                 child: InkWell(
                   child: Icon(
                     Icons.notifications,
                     color: Colors.white,
-                    size: 30,
+                    size: MediaQuery.of(context).size.aspectRatio*60,
                   ),
                   onTap: () {
                     Navigator.push(
@@ -88,8 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
               //3 dots icon here
               Positioned(
-                top: 24,
-                left: 320,
+                top: MediaQuery.of(context).size.height*0.027,
+                left: MediaQuery.of(context).size.width*0.817,
                 child: PopupMenuButton<int>(
                   itemBuilder: (context) =>
                   [
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   icon: Icon(
                     Icons.more_vert,
                     color: Colors.white,
-                    size: 30,
+                    size: MediaQuery.of(context).size.aspectRatio*68,
                   ),
                   onSelected: (value) {
                     // Handle selection of menu options here
@@ -122,52 +122,59 @@ class _MyHomePageState extends State<MyHomePage> {
               // Circle code starts here
                   // other widgets in the stack...
               Positioned(
-                top: 60,
-                left: 50,
+                top: MediaQuery.of(context).size.shortestSide*0.17,
+                left: MediaQuery.of(context).size.shortestSide*0.14,
                 child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: CircularPercentIndicator( //circular progress indicator
-                    radius: 140.0, //radius for circle
-                    lineWidth: 50.0, //width of circle line
-                    animation: true, //animate when it shows progress indicator first
-                    percent: 60/100, //vercentage value: 0.6 for 60% (60/100 = 0.6)
+                  padding: EdgeInsets.all(2),
+                  child: CircularPercentIndicator(
+                    radius: MediaQuery.of(context).size.shortestSide*0.35,
+                    lineWidth: MediaQuery.of(context).size.shortestSide*0.12,
+                    animation: true,
+                    percent: 69/100,
                     center: Text(
-                      "60 BPM",
+                      "69 BPM",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: Colors.white,  // text color
+                        fontSize: MediaQuery.of(context).size.aspectRatio*45,
+                        color: Colors.white,
                       ),
-                    ), //center text, you can set Icon as well
-                    backgroundColor: Colors.lightGreen,
-                    circularStrokeCap: CircularStrokeCap.round, //corner shape of progress bar at start/end
-                    progressColor: Colors.blue,  // circle color
+                    ),
+                    backgroundColor: Color(0xFF004AAD),
+                    circularStrokeCap: CircularStrokeCap.round,
+                    progressColor: Color(0xFF1A1847),
                   ),
                 ),
               )
+
               ,
               //Circle code ends here
 
               Container(
-                padding: EdgeInsets.only(left: 65, top: 380),
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.15,
+                    top: MediaQuery.of(context).size.height*0.446
+                ),
                 child: Text('Categories', style: TextStyle(
                     color: Colors.white,
-                    fontSize: 25
+                    fontSize: MediaQuery.of(context).size.aspectRatio*52
                 ),),
               ),
 
               // view more option starts here
               Positioned(
-                top: 385,
-                left: 230,
+                top: MediaQuery.of(context).size.height*0.453,
+                left: MediaQuery.of(context).size.width*0.6,
                 child: InkWell(
                   child: Row(
                     children: [
                       Text('View More',
-                          style: TextStyle(color: Colors.white, fontSize: 17)),
-                      SizedBox(width: 6),
+                          style: TextStyle(color: Colors.white,
+                              fontSize: MediaQuery.of(context).size.aspectRatio*40
+                          )),
+                      SizedBox(width: MediaQuery.of(context).size.aspectRatio*6),
                       // add some spacing between the text and icon
-                      Icon(Icons.arrow_forward, color: Colors.white, size: 16,),
+                      Icon(Icons.arrow_forward, color: Colors.white,
+                        size: MediaQuery.of(context).size.aspectRatio*40,),
                     ],
                   ),
                   onTap: () {
@@ -183,9 +190,10 @@ class _MyHomePageState extends State<MyHomePage> {
               //view more option ends here
               // 6 Square Containers Start Here
               Container(
-                width: 70,
-                height: 65,
-                margin: EdgeInsets.only(left: 62, top: 470),
+                width: MediaQuery.of(context).size.width*0.175,
+                height: MediaQuery.of(context).size.height*0.075,
+                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.157,
+                    top: MediaQuery.of(context).size.height*0.55),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(8),
@@ -205,20 +213,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 76, top: 540),
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.2,
+                    top: MediaQuery.of(context).size.height*0.635),
                 child: Text(
                   'B.P.M',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 15,
+                    fontSize: MediaQuery.of(context).size.aspectRatio*35,
                   ),
                 ),
               ),
               // Container 1 Text
               Container(
-                width: 70,
-                height: 65,
-                margin: EdgeInsets.only(left: 162, top: 470),
+                width: MediaQuery.of(context).size.width*0.175,
+                height: MediaQuery.of(context).size.height*0.075,
+                margin: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.41,
+                    top: MediaQuery.of(context).size.height*0.55),
                 decoration: BoxDecoration(color: Colors.white,
                     borderRadius: BorderRadius.circular(8)),
                 child: InkWell(
@@ -235,16 +247,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ), // Container 2 Image
               Container(
-                padding: EdgeInsets.only(left: 155, top: 540),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.39,
+                    top: MediaQuery.of(context).size.height*0.635),
                 child: Text('Temperature', style: TextStyle(
                     color: Colors.white,
-                    fontSize: 15
+                    fontSize: MediaQuery.of(context).size.aspectRatio*33
                 ),),
               ), // Container 2 Text
               Container(
-                width: 70,
-                height: 65,
-                margin: EdgeInsets.only(left: 262, top: 470),
+                width: MediaQuery.of(context).size.width*0.175,
+                height: MediaQuery.of(context).size.height*0.075,
+                margin: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.665,
+                    top: MediaQuery.of(context).size.height*0.55),
                 decoration: BoxDecoration(color: Colors.white,
                     borderRadius: BorderRadius.circular(8)),
                 child: InkWell(
@@ -262,16 +277,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ), // Container 3 Image
               Container(
-                padding: EdgeInsets.only(left: 272, top: 540),
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.7,
+                    top: MediaQuery.of(context).size.height*0.635
+                ),
                 child: Text('Activity', style: TextStyle(
                     color: Colors.white,
-                    fontSize: 15
+                    fontSize: MediaQuery.of(context).size.aspectRatio*33
                 ),),
               ), // Container 3 Text
               Container(
-                width: 70,
-                height: 60,
-                margin: EdgeInsets.only(left: 62, top: 600),
+                width: MediaQuery.of(context).size.width*0.175,
+                height: MediaQuery.of(context).size.height*0.075,
+                margin: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.16,
+                    top: MediaQuery.of(context).size.height*0.705),
                 decoration: BoxDecoration(color: Colors.white,
                     borderRadius: BorderRadius.circular(8)),
                 child: InkWell(
@@ -288,16 +308,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ), // Container 4 Image
               Container(
-                padding: EdgeInsets.only(left: 60, top: 670),
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.155,
+                    top: MediaQuery.of(context).size.height*0.794
+                ),
                 child: Text('Respiration', style: TextStyle(
                     color: Colors.white,
-                    fontSize: 15
+                    fontSize: MediaQuery.of(context).size.aspectRatio*35
                 ),),
               ), // Container 4 Text
               Container(
-                width: 70,
-                height: 60,
-                margin: EdgeInsets.only(left: 162, top: 600),
+                width: MediaQuery.of(context).size.width*0.175,
+                height: MediaQuery.of(context).size.height*0.075,
+                margin: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.415,
+                    top: MediaQuery.of(context).size.height*0.705),
                 decoration: BoxDecoration(color: Colors.white,
                     borderRadius: BorderRadius.circular(8)),
                 child: InkWell(
@@ -314,16 +339,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ), //Container 5 Image
               Container(
-                padding: EdgeInsets.only(left: 178, top: 670),
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.458,
+                    top: MediaQuery.of(context).size.height*0.792
+                ),
                 child: Text('H.R.V', style: TextStyle(
                     color: Colors.white,
-                    fontSize: 15
+                    fontSize: MediaQuery.of(context).size.aspectRatio*34
                 ),),
               ), //Conatiner 5 Text
               Container(
-                width: 70,
-                height: 60,
-                margin: EdgeInsets.only(left: 262, top: 600),
+                width: MediaQuery.of(context).size.width*0.175,
+                height: MediaQuery.of(context).size.height*0.075,
+                margin: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.67,
+                    top: MediaQuery.of(context).size.height*0.704),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(8),
@@ -342,19 +372,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ), // Container 6 Image
               Container(
-                padding: EdgeInsets.only(left: 278, top: 670),
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width*0.7,
+                    top: MediaQuery.of(context).size.height*0.79
+                ),
                 child: Text('Sleep', style: TextStyle(
                     color: Colors.white,
-                    fontSize: 15
+                    fontSize: MediaQuery.of(context).size.aspectRatio*34
                 ),),
               ), //Container 6 Text
               // 6 Square Containers End Here
 
               // Navigation bar starts here
               Container(
-                width: 340,
-                height: 60,
-                margin: EdgeInsets.only(left: 28, top: 760),
+                width: MediaQuery.of(context).size.width*1,
+                height: MediaQuery.of(context).size.height*0.07,
+                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.07,
+                    top: MediaQuery.of(context).size.height*0.88,
+                    right: MediaQuery.of(context).size.width*0.07),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(6),
@@ -363,7 +398,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -381,7 +416,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -399,7 +434,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -417,7 +452,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
